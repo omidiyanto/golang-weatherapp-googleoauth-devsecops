@@ -5,6 +5,7 @@ import (
     "fmt"
     "net/http"
     "os"
+    "path/filepath"
 
     "github.com/gin-gonic/gin"
     "golang.org/x/oauth2"
@@ -18,12 +19,16 @@ var (
 )
 
 func init() {
-    err := godotenv.Load()
-    if err != nil {
-        fmt.Println("Error loading .env file:", err)
-        return
+    // Check if .env file exists
+    if _, err := os.Stat(".env"); err == nil {
+        // Load environment variables from .env file
+        err := godotenv.Load()
+        if err != nil {
+            fmt.Println("Error loading .env file:", err)
+        }
     }
 
+    // Initialize Google OAuth config
     googleOauthConfig = oauth2.Config{
         ClientID:     os.Getenv("GOOGLE_CLIENT_ID"),
         ClientSecret: os.Getenv("GOOGLE_CLIENT_SECRET"),
@@ -42,7 +47,12 @@ func main() {
     router := gin.Default()
 
     // Load HTML templates
-    router.LoadHTMLGlob("templates/*")
+    templatesPath := "templates/*"
+    if _, err := filepath.Glob(templatesPath); err != nil {
+        fmt.Printf("Error loading templates: %v\n", err)
+        return
+    }
+    router.LoadHTMLGlob(templatesPath)
     router.Static("/static", "./static")
 
     // API endpoint to get the API key
@@ -56,9 +66,9 @@ func main() {
     router.GET("/callback", callback)
     router.GET("/logout", logout)
 
+    // Start the server
     router.Run("0.0.0.0:5000")
 }
-
 
 func index(c *gin.Context) {
     if _, err := c.Cookie("google_id"); err != nil {
@@ -75,7 +85,7 @@ func index(c *gin.Context) {
 }
 
 func login(c *gin.Context) {
-	fmt.Println("Redirect URL:", googleOauthConfig.RedirectURL) // Debugging output
+    fmt.Println("Redirect URL:", googleOauthConfig.RedirectURL) // Debugging output
     url := googleOauthConfig.AuthCodeURL(oauthStateString)
     c.Redirect(http.StatusTemporaryRedirect, url)
 }
