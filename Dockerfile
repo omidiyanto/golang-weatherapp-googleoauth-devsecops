@@ -8,6 +8,8 @@ RUN go build -o main .
 # Runtime Stage
 FROM alpine:latest
 WORKDIR /app
+COPY --from=builder /app/static .
+COPY --from=builder /app/templates .
 COPY --from=builder /app/main .
 EXPOSE 5000
 CMD ["./main"]
