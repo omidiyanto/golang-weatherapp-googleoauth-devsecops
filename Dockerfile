@@ -3,7 +3,6 @@ FROM golang:alpine AS builder
 WORKDIR /app
 COPY . .
 RUN go mod download
-WORKDIR /app/cmd/app
 
 ARG ARG_GOOGLE_CLIENT_ID
 ENV GOOGLE_CLIENT_ID=${ARG_GOOGLE_CLIENT_ID}
