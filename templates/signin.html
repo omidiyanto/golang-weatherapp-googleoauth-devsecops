@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Weatherapp by Omi</title>
+    <link rel="shortcut icon" type="image/png" href="/static/images/icons/stars.png" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://use.fontawesome.com/96ba741ff3.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="text-center">
+            <h3 class="welcome-message" style="font-size: 2rem; font-weight: 800; color: #2f2c42;">
+                Welcome to Weatherapp by Omi
+            </h3>
+            <p style="font-size: 1.2rem; color: #2f2c42;">Please login to continue</p>
+            <!-- Google Login Button -->
+            <a href="/login">
+                <button class="btn btn-primary login-btn" style="padding: 1rem 3rem; font-size: 1.2rem; background-color: #cfcfcf; color: black; border: none; border-radius: 50px;  align-items: center; justify-content: center; gap: 10px;transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+                    <!-- Google Logo Icon -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" style="width: 30px; height: 30px;">
+                    Login with Google Account
+                </button>
+            </a>
+
+            <script>
+                // Add hover effects using JS
+                const button = document.querySelector('.login-btn');
+                button.addEventListener('mouseenter', function() {
+                    button.style.backgroundColor = 'rgba(66, 133, 244, 0.1)';
+                    button.style.borderColor = '#4285f4';
+                    button.style.transform = 'scale(1.05)';
+                    button.style.boxShadow = '0 6px 15px rgba(0, 0, 0, 0.2)';
+                });
+
+                button.addEventListener('mouseleave', function() {
+                    button.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                    button.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                    button.style.transform = 'scale(1)';
+                    button.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+                });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
