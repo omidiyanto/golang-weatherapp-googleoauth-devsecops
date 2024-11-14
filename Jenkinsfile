@@ -7,7 +7,7 @@ pipeline {
     }
     
     environment {
-        IMAGE_TAG = "v${env.BUILD_NUMBER}"
+        IMAGE_TAG = "v1.0.${env.BUILD_NUMBER}"
         REPOSITORY = 'quay.io/omidiyanto' 
         APP_NAME = 'golang-weatherapp' 
         YAML_PATH = 'Kubernetes/golang-weatherapp.yml' 
