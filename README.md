@@ -1,5 +1,5 @@
 # Golang Weather App
-
+<img src="https://github.com/user-attachments/assets/18cfdd49-0db6-4ca4-8f12-e9676c2df72a"></img>
 ## Overview
 
 This project is a web application that integrates Google OAuth for authentication and fetches weather data from the OpenWeather API.
