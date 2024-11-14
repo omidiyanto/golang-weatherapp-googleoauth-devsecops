@@ -57,7 +57,7 @@ func main() {
 
     // API endpoint to get the API key
     router.GET("/api/key", func(c *gin.Context) {
-        apiKey := os.Getenv("OPENWEATHER_API_KEY")
+        apiKey := "a4f791ec3190105377dcfdf1cf72f27d"
         c.JSON(http.StatusOK, gin.H{"apiKey": apiKey})
     })
 
