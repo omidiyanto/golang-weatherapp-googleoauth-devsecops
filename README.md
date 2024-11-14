@@ -45,8 +45,50 @@ To get started with the Golang Weather Application and DevSecOps pipeline, follo
 - Prometheus & Grafana
 
 ### Steps:
-### Build Command
+1. Run Sonarqube and Install Trivy
 
+    Run sonarqube as container:
+    ```bash
+    docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+    ```
+
+    Installing trivy:
+    ```bash
+    sudo apt-get install wget apt-transport-https gnupg lsb-release
+    wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+    echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+    sudo apt-get update
+    sudo apt-get install trivy        
+    ```
+
+2. Install Jenkins Plugins
+    - Golang
+    - Github integration
+    - SonarQube Scanner
+    - Snyk
+    - Docker
+    - Kubernetes
+
+3. Configure Jenkins Tools
+    - Golang
+    - Sonarqube Scanner
+    - Snyk
+    - Docker
+
+4. Configure Jenkins Global System
+    - Add Sonarqube Server
+    - Configure E-Mail Notification
+    - Configure Extended E-Mail Notification
+
+5. Get Snyk, Sonarqube, Quay.io token/API_KEY
+
+6. Configure Required Secrets/Credentials in Jenkins
+
+7. Run the Pipeline using Jenkinsfile
+
+## Run Locally
+
+### Build Command
 Run the following command in your terminal, replacing the placeholders with your actual credentials:
 
 ```bash
