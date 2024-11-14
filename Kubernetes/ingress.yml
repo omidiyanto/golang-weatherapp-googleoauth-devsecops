@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: golang-weatherapp
+  labels:
+    name: golang-weatherappweatherapp.omidiyanto.my.id
+  rules:
+  - host: weatherapp.omidiyanto.my.id
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: golang-weatherapp
+            port:
+              number: 5000
