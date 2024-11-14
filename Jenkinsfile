@@ -26,7 +26,7 @@ pipeline {
         
         stage('Checkout from Git') {
             steps {
-                git branch: 'master', url: 'https://github.com/omidiyanto/golang-weatherapp-googleoauth.git'
+                git branch: 'master', url: 'https://github.com/omidiyanto/golang-weatherapp-googleoauth-devsecops.git'
             }
         }
         
