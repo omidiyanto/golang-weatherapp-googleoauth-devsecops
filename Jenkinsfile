@@ -82,7 +82,7 @@ pipeline {
         stage("Docker Build & Push") {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'quay.io-account', url: 'https://quay.io', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'quayio-account', url: 'https://quay.io', toolName: 'docker') {
                         sh "docker build -t ${env.REPOSITORY}/${env.APP_NAME}:${env.IMAGE_TAG} ."
                         sh "docker push ${env.REPOSITORY}/${env.APP_NAME}:${env.IMAGE_TAG}"
                     }
@@ -117,8 +117,6 @@ pipeline {
             }
         }
 
-
-
         
     }
     
@@ -130,7 +128,7 @@ pipeline {
                 subject: "Jenkins Report - ${env.JOB_NAME}#${env.BUILD_NUMBER}",
                 body: "Results: '${currentBuild.result}'",
                 to: 'midiyanto26@gmail.com',
-                attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
+                attachmentsPattern: 'snyk-code-analysis.txt,trivy-image-scan.txt'
             )
         }
     }
