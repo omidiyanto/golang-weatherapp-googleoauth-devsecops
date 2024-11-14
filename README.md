@@ -1,5 +1,5 @@
 # Golang Weather App
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/90853331/386301561-7e92780a-4b90-4140-b7c9-2d7fd9c63743.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241114%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241114T172402Z&X-Amz-Expires=300&X-Amz-Signature=e219bb1d39f73f5f02f8e0529905b6039aeafe0e4d9f28115ef5f1f1552077b3&X-Amz-SignedHeaders=host"></img>
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/90853331/386306430-c38799ff-abd5-4997-8834-d96423311558.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241114%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241114T174037Z&X-Amz-Expires=300&X-Amz-Signature=488ba6f386f807c5495c76725c95af6f54b2d58bad4371160543864445ae9a25&X-Amz-SignedHeaders=host"></img>
 
 <img src="https://github.com/user-attachments/assets/c38799ff-abd5-4997-8834-d96423311558"></img>
 ## Overview
