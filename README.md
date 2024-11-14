@@ -1,6 +1,4 @@
 # Golang Weather App
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/90853331/386306430-c38799ff-abd5-4997-8834-d96423311558.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241114%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241114T174037Z&X-Amz-Expires=300&X-Amz-Signature=488ba6f386f807c5495c76725c95af6f54b2d58bad4371160543864445ae9a25&X-Amz-SignedHeaders=host"></img>
-
 <img src="https://github.com/user-attachments/assets/c38799ff-abd5-4997-8834-d96423311558"></img>
 ## Overview
 
