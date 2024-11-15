@@ -4,6 +4,7 @@ metadata:
   name: golang-weatherapp
   labels:
     name: golang-weatherappweatherapp.omidiyanto.my.id
+spec:
   rules:
   - host: weatherapp.omidiyanto.my.id
     http:
