@@ -4,7 +4,7 @@
     let mainImageUrl;
     let unit = 'metric';
     let celsiusTemp = null;
-    let apiKey; // Initialize apiKey as undefined
+    let apiKey; // Initialize apiKey 
     let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather?";
 
     // Fetch the API key from the server
