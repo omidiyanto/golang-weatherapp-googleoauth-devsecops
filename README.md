@@ -44,6 +44,11 @@ To get started with the Golang Weather Application and DevSecOps pipeline, follo
 - Jenkins
 - Prometheus & Grafana
 
+    <b>Note</b>: You can automatically prepare the required infrastructure following my repository here
+    ```
+    https://github.com/omidiyanto/IaC-Project-k8s-jenkins-prometheus-grafana.git
+    ```
+
 ### Steps:
 1. Run Sonarqube and Install Trivy
 
