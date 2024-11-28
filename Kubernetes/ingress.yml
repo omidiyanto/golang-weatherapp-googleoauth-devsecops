@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: golang-weatherapp
   labels:
-    name: golang-weatherappweatherapp.omidiyanto.my.id
+    name: golang-weatherapp
 spec:
   rules:
   - host: weatherapp.omidiyanto.my.id

@@ -13,16 +13,11 @@ spec:
     spec:
       containers:
       - name: golang-weatherapp
-        image: quay.io/omidiyanto/golang-weatherapp:latest
-        env:
-        - name: GOOGLE_CLIENT_ID
-          value: "..."
-        - name: GOOGLE_CLIENT_SECRET
-          value: "..."
-        - name: OPENWEATHER_API_KEY
-          value: "..."
-        - name: REDIRECT_URI
-          value: "..."
+        image: quay.io/omidiyanto/golang-weatherapp:v1.0.10
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: golang-weatherapp-secret
         resources:
           limits:
             memory: "128Mi"
