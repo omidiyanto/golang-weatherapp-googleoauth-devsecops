@@ -3,18 +3,18 @@ pipeline {
     
     tools {
         go 'golang'
-        docker 'docker'
+        dockerTool 'docker'
     }
     
     environment {
         IMAGE_TAG = "v1.0.${env.BUILD_NUMBER}"
         REPOSITORY = 'quay.io/omidiyanto' 
         APP_NAME = 'golang-weatherapp' 
-        YAML_PATH = 'Kubernetes/golang-weatherapp.yml' 
+        YAML_PATH = 'Kubernetes' 
         GOOGLE_CLIENT_ID = credentials('GOOGLE_CLIENT_ID')
         GOOGLE_CLIENT_SECRET = credentials('GOOGLE_CLIENT_SECRET')
         OPENWEATHER_API_KEY = credentials('OPENWEATHER_API_KEY')
-        REDIRECT_URI='https://weatherapp.omidiyanto.my.id'
+        REDIRECT_URI='https://weatherapp.omidiyanto.my.id/callback'
     }
 
     stages {
@@ -39,10 +39,9 @@ pipeline {
         
         stage('SAST (sonarqube'){
             steps{
-                withSonarQubeEnv('sonarcloud') {
+                withSonarQubeEnv('sonarqube') {
                     sh """
                         ${tool 'sonar-scanner'}/bin/sonar-scanner \
-                            -Dsonar.organization=omi-organization \
                             -Dsonar.projectKey=omi-organization_golang-weatherapp 
                     """
                 }
@@ -53,7 +52,7 @@ pipeline {
         stage("Quality Gate") {
             steps {
                 script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+                    waitForQualityGate abortPipeline: false, credentialsId: 'SONAR_TOKEN'
                 }
             }
         }
@@ -100,7 +99,9 @@ pipeline {
             steps {
                 script {
                     // 1) Update Image Value 
-                    sh "yq eval '.spec.template.spec.containers[0].image = ${env.REPOSITORY}/${env.APP_NAME}:${env.IMAGE_TAG}' -i ${env.YAML_PATH}/deployment.yml"
+                    sh """
+                        yq eval '.spec.template.spec.containers[0].image = "${env.REPOSITORY}/${env.APP_NAME}:${env.IMAGE_TAG}"' -i ${env.YAML_PATH}/deployment.yml
+                    """
                     
                     // 2) Update Deployment Environment Variable
                     sh """
