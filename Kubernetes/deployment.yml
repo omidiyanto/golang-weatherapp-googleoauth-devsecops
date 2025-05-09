@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: golang-weatherapp
-        image: quay.io/omidiyanto/golang-weatherapp:v1.0.10
+        image: quay.io/omidiyanto/golang-weatherapp:v1.0.11
         imagePullPolicy: Always
         envFrom:
         - secretRef:
